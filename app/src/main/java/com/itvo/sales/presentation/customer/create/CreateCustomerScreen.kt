@@ -68,13 +68,6 @@ fun CreateCustomerScreen(
                 modifier = Modifier.fillMaxWidth().padding(bottom = 8.dp)
             )
 
-            OutlinedTextField(
-                value = state.phone,
-                onValueChange = { viewModel.onEvent(CreateCustomerUiEvent.PhoneChanged(it)) },
-                label = { Text("Teléfono") },
-                modifier = Modifier.fillMaxWidth().padding(bottom = 16.dp)
-            )
-
             Button(
                 onClick = { viewModel.onEvent(CreateCustomerUiEvent.SaveClicked) },
                 modifier = Modifier.fillMaxWidth()

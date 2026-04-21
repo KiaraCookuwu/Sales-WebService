@@ -33,7 +33,6 @@ class CreateCustomerViewModel @Inject constructor(
             is CreateCustomerUiEvent.IdChanged -> updateState { copy(id = event.value) }
             is CreateCustomerUiEvent.NameChanged -> updateState { copy(name = event.value) }
             is CreateCustomerUiEvent.EmailChanged -> updateState { copy(email = event.value) }
-            is CreateCustomerUiEvent.PhoneChanged -> updateState { copy(phone = event.value) }
             CreateCustomerUiEvent.SaveClicked -> saveCustomer()
         }
     }
@@ -51,8 +50,7 @@ class CreateCustomerViewModel @Inject constructor(
                 val customer = Customer(
                     id = currentState.id,
                     name = currentState.name,
-                    email = currentState.email,
-                    phone = currentState.phone
+                    email = currentState.email
                 )
                 createCustomerUseCase(customer)
                 sendEffect(CreateCustomerUiEffect.ShowSuccess("Cliente creado con éxito"))

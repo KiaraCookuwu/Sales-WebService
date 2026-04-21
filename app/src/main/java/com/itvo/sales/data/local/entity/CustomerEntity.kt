@@ -8,6 +8,5 @@ data class CustomerEntity(
     @PrimaryKey
     val id: String,
     val name: String,
-    val email: String,
-    val phone: String
+    val email: String
 )

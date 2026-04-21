@@ -26,7 +26,7 @@ object DatabaseModule {
             SalesDatabase::class.java,
             "sales.db"
         )
-            .fallbackToDestructiveMigration() // Evita errores al actualizar la base de datos
+            .fallbackToDestructiveMigration()
             .build()
     }
 

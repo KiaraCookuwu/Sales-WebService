@@ -1,4 +1,4 @@
-package com.itvo.sales.data.local.repository
+package com.itvo.sales.data.repository
 
 import com.itvo.sales.data.local.dao.ProductDao
 import com.itvo.sales.data.mapper.toDomain

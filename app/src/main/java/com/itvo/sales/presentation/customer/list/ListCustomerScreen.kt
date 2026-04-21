@@ -36,7 +36,6 @@ fun CustomerItem(
                 Text(text = "ID: ${customer.id}", style = MaterialTheme.typography.bodySmall)
                 Spacer(modifier = Modifier.height(4.dp))
                 Text(text = "Email: ${customer.email}", style = MaterialTheme.typography.bodyMedium)
-                Text(text = "Tel: ${customer.phone}", style = MaterialTheme.typography.bodyMedium)
             }
             IconButton(onClick = { onDeleteClick(customer) }) {
                 Icon(

@@ -1,14 +1,14 @@
 package com.itvo.sales.di
 
+import com.itvo.sales.data.repository.CustomerRepositoryImpl
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import com.itvo.sales.data.local.repository.RoomCustomerRepository
-import com.itvo.sales.data.local.repository.RoomProductRepository
-import com.itvo.sales.data.remote.FirestoreProductRepository
-import com.itvo.sales.domain.repository.CustomerRepository
+import com.itvo.sales.data.repository.FirestoreProductRepository
 import com.itvo.sales.domain.repository.ProductRepository
+import com.itvo.sales.data.repository.ProductRepositoryImpl
+import com.itvo.sales.domain.repository.CustomerRepository
 import javax.inject.Singleton
 
 @Module
@@ -18,13 +18,11 @@ abstract class RepositoryModule {
     @Binds
     @Singleton
     abstract fun bindProductRepository(
-        repository: FirestoreProductRepository //InMemory / Room / Firestore
+        repository: ProductRepositoryImpl //RoomProductRepository// InMemoryProductRepository
     ): ProductRepository
-
-    // NUEVO: Enlazamos el repositorio de Customer
     @Binds
     @Singleton
     abstract fun bindCustomerRepository(
-        repository: RoomCustomerRepository
+       repository: CustomerRepositoryImpl
     ): CustomerRepository
 }

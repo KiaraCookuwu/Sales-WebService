@@ -1,4 +1,4 @@
-package com.itvo.sales.data.remote
+package com.itvo.sales.data.remote.datasource
 
 import com.google.firebase.firestore.FirebaseFirestore
 import com.itvo.sales.domain.model.Product

@@ -90,4 +90,9 @@ dependencies {
     implementation("com.google.firebase:firebase-firestore-ktx")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.10.2")
 
+    //--- Retrofit
+    implementation("com.squareup.retrofit2:retrofit:3.0.0")
+
+    // Convertidor JSON (Gson)
+    implementation("com.squareup.retrofit2:converter-gson:3.0.0")
 }

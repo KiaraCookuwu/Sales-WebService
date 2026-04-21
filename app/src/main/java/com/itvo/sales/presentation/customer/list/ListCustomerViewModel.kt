@@ -8,6 +8,7 @@ import com.itvo.sales.domain.usecase.customer.ListCustomersUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.flow.stateIn
@@ -24,6 +25,7 @@ class ListCustomerViewModel @Inject constructor(
         listCustomersUseCase()
             .map { customers -> ListCustomerUiState(isLoading = false, customers = customers) }
             .onStart { emit(ListCustomerUiState(isLoading = true)) }
+            .catch { emit(ListCustomerUiState(isLoading = false, customers = emptyList())) } // <- ESTA LÍNEA EVITA EL CRASH
             .stateIn(
                 viewModelScope,
                 SharingStarted.WhileSubscribed(5_000),

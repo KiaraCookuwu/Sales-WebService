@@ -8,13 +8,13 @@ import com.itvo.sales.data.local.entity.ProductEntity
 import com.itvo.sales.data.local.entity.CustomerEntity
 
 @Database(
-    entities = [ProductEntity::class, CustomerEntity::class], // Agregamos CustomerEntity
-    version = 2, // Subimos la versión a 2
+    entities = [ProductEntity::class, CustomerEntity::class],
+    version = 3,
     exportSchema = false
 )
 abstract class SalesDatabase : RoomDatabase() {
 
     abstract fun productDao(): ProductDao
-    abstract fun customerDao(): CustomerDao // Agregamos el DAO de clientes
+    abstract fun customerDao(): CustomerDao
 
 }

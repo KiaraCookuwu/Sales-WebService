@@ -1,4 +1,4 @@
-package com.itvo.sales.data.local.repository
+package com.itvo.sales.data.repository
 
 import com.itvo.sales.domain.model.Product
 import com.itvo.sales.domain.repository.ProductRepository
@@ -10,9 +10,12 @@ import javax.inject.Singleton
 class InMemoryProductRepository @Inject constructor()
     : BaseInMemoryRepository<Product, String>(
     initialData = listOf(
-        Product("P1", "Laptop", "Electronics", 15000.0, 10, true),
-        Product("P2", "Mouse", "Electronics", 500.0, 50, true),
-        Product("P3", "Desk", "Furniture", 3000.0, 5, false)
+        Product("P1", "Laptop", "Electronics", 15000.0,
+            10, true),
+        Product("P2", "Mouse", "Electronics", 500.0,
+            50, true),
+        Product("P3", "Desk", "Furniture", 3000.0,
+            5, false)
     )
 ),
     ProductRepository {
@@ -35,3 +38,4 @@ class InMemoryProductRepository @Inject constructor()
 
     override fun getProducts(): Flow<List<Product>> = observeAll()
 }
+

@@ -7,8 +7,7 @@ fun CustomerEntity.toDomain(): Customer {
     return Customer(
         id = id,
         name = name,
-        email = email,
-        phone = phone
+        email = email
     )
 }
 
@@ -16,7 +15,6 @@ fun Customer.toEntity(): CustomerEntity {
     return CustomerEntity(
         id = id,
         name = name,
-        email = email,
-        phone = phone
+        email = email
     )
 }

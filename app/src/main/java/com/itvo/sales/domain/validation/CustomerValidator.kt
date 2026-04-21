@@ -9,8 +9,7 @@ class CustomerValidator {
         listOfNotNull(
             "ID requerido".takeIf { customer.id.isBlank() },
             "Nombre requerido".takeIf { customer.name.isBlank() },
-            "Correo requerido".takeIf { customer.email.isBlank() },
-            "Teléfono requerido".takeIf { customer.phone.isBlank() }
+            "Correo requerido".takeIf { customer.email.isBlank() }
         ).firstOrNull()
             ?.let { ValidationResult.Error(it) }
             ?: ValidationResult.Success

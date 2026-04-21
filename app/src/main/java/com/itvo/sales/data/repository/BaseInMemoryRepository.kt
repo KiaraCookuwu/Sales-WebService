@@ -1,4 +1,4 @@
-package com.itvo.sales.data.local.repository
+package com.itvo.sales.data.repository
 
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -9,18 +9,14 @@ abstract class BaseInMemoryRepository<T, ID>(
 ) : BaseRepository<T, ID> {
 
     protected val state = MutableStateFlow(initialData)
-
     abstract fun getId(item: T): ID
-
     override fun observeAll(): Flow<List<T>> = state
-
     override suspend fun findById(id: ID): T? {
 
         return state.value.find {
             getId(it) == id
         }
     }
-
     override suspend fun save(item: T) {
 
         state.update { current ->
@@ -32,7 +28,6 @@ abstract class BaseInMemoryRepository<T, ID>(
             }
         }
     }
-
     override suspend fun deleteById(id: ID) {
 
         state.update { current ->

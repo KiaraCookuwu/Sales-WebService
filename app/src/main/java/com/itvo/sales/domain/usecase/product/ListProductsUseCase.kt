@@ -8,7 +8,6 @@ import javax.inject.Inject
 class ListProductsUseCase @Inject constructor(
     private val repository: ProductRepository
 ) {
-
     operator fun invoke(): Flow<List<Product>> {
         return repository.getProducts()
     }
